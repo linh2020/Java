@@ -164,5 +164,6 @@ public class LinkedList {
 // 1 -> null
 // null
 
-//1234
+//12345
+
 
