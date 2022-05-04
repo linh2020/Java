@@ -31,6 +31,8 @@ public class LinkedList {
             while (currentNode != null) {
                 System.out.print(currentNode.data + " -> ");
                 currentNode = currentNode.next;
+
+
             }
             System.out.println("null");
         }
