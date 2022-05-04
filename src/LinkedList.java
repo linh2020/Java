@@ -1,3 +1,11 @@
+public class LinkedList {
+    public static void main(String[] args) {
+
+
+
+    }
+}
+
 ////public class LinkedList {
 ////    Node head = null;
 ////
@@ -164,5 +172,4 @@
 //// 1 -> null
 //// null
 //
-////12345678
 
