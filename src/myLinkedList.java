@@ -59,7 +59,8 @@ public class myLinkedList {
 //        System.out.println(ll.head.next.data);
 //        System.out.println(two.next.data);
 
-        //testinggggggggffff
+        // testingggg 123 23 www
+
 
         ll.printList();
     }
