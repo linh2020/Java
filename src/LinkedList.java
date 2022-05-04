@@ -1,5 +1,89 @@
 public class LinkedList {
+    Node head;
+
+    static class Node {
+        private int data;
+        private Node next;
+
+        Node(int d) {
+            this.data = d;
+            this.next = null;
+        }
+    }
+
+    void printList() {
+        if (this.head == null)
+            System.out.println("Empty LinkedList");
+        else {
+            while (true) {
+                System.out.print(this.head.data + " -> ");
+                if (this.head.next == null) {
+                    System.out.print("null");
+                    break;
+                } else {
+                    this.head = this.head.next;
+                }
+            }
+        }
+    }
+
+    void insertFirstNode(int data) {
+        Node newNode = new Node(data);
+        if (this.head == null)
+            this.head = newNode;
+        else {
+            Node tmpNode = this.head;
+            this.head = newNode;
+            this.head.next = tmpNode;
+        }
+    }
+
+    void insertLastNode(int data) {
+        Node newNode = new Node(data);
+        if (this.head == null)
+            this.head = newNode;
+        else {
+
+        }
+//        else {
+//            while (true) {
+//                if (this.head.next == null) {
+//                    this.head.next = newNode;
+//                    break;
+//                } else {
+//                    this.head = this.head.next;
+//                }
+//            }
+//        }
+
+    }
+
+
+    // Driver code
     public static void main(String[] args) {
+        // create a node
+        Node one = new Node(1);
+        Node two = new Node(2);
+        Node three = new Node(3);
+
+        // create a LinkedList
+        LinkedList ll = new LinkedList();
+//        ll.head = one;
+//
+//        one.next = two;
+//        two.next = three;
+//        ll.insertLastNode(1);
+//        ll.insertLastNode(2);
+//        ll.insertLastNode(3);
+//        ll.insertLastNode(4);
+
+        ll.insertFirstNode(1);
+        ll.insertFirstNode(2);
+        ll.insertFirstNode(3);
+        ll.insertFirstNode(4);
+
+
+        ll.printList();
 
     }
 }
