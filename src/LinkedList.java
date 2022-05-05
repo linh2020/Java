@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 public class LinkedList {
     Node head;
 
@@ -19,43 +17,135 @@ public class LinkedList {
         head = newNode;
     }
 
-    void printList() {
-        if (head == null) {
-            System.out.println("Empty List");
+    void addLastNode(int data) {
+        Node newNode = new Node(data);
+        if (this.head == null) {
+            this.head = newNode;
         } else {
+//            Node tmpNode = this.head;
+
+            Node tmpNode = this.head;
+            //test ref in object variable
+//            this.head.data = 1001;
+//            System.out.println("Start ---> copy of Head: " + tmpNode.data); // 100
+//            System.out.println("Start ---> Head: " + this.head.data); // 100
+//
+//            tmpNode.data = 2005;
+//            System.out.println("Start ---> copy of Head: " + tmpNode.data); // 200
+//            System.out.println("Start ---> Head: " + this.head.data); //200
+
+            while (tmpNode != null) {
+                if (tmpNode.next != null) {
+//                    this.head = tmpNode.next;
+                    tmpNode = tmpNode.next; // change ref of tmpNode to tmpNODE.next
+//                    this.head = tmpNode;
+
+                    System.out.println("tmpNODE-1 : " + tmpNode.data);
+                    System.out.println("HeadNODE-1 : " + this.head.data);
+                    System.out.println();
+
+                    //testing
+//                    tmpNode.data = 300;
+////                    this.head.data = 300;
+//                    System.out.println("Testing");
+//                    System.out.println("tmpNODE-1 : " + tmpNode.data);
+//                    System.out.println("OrgNODE-1 : " + this.head.data);
+//                    System.out.println();
+                } else {
+//                    System.out.println("before: " + head.next);
+                    tmpNode.next = newNode;
+//                    System.out.println("after: " + head.next);
+                    // == NULL
+                    System.out.println(tmpNode.data);
+                    System.out.println(tmpNode.next.data);
+                    System.out.println("Org node in if - 2: " + this.head.data);
+                    System.out.println();
+                    break;
+                }
+            }
+
+            System.out.println("--->Org End Head: " + this.head.data);
+            System.out.println("--->End copy of Head: " + tmpNode.data);
+            System.out.println();
+
+//            System.out.println("Head: " + this.head.data);
+//            while (this.head != null) {
+//                if (this.head.next == null) {
+////                    System.out.println("before: " + head.next);
+//                    this.head.next = newNode;
+////                    System.out.println("after: " + head.next);
+//                    System.out.println(this.head.data);
+//                    System.out.println(this.head.next.data);
+//                    System.out.println("Temp node in if - 1: " + tmpNode.data);
+//                    break;
+//                } else {
+//                    this.head = this.head.next;
+//                    System.out.println(this.head.data);
+//                    System.out.println("Temp node in if - 2: " + tmpNode.data); // no reference
+//                }
+//            }
+//            System.out.println("End Head: " + this.head.data);
+//            System.out.println("End copy of Head: " + tmpNode.data);
+//            System.out.println();
+
+// passed
+//            while (tmpNode.next != null) {
+//                tmpNode = tmpNode.next;
+//            }
+//            tmpNode.next = newNode;
+        }
+    }
+
+    void printList() {
+        if (this.head == null)
+            System.out.println("Empty List");
+        else {
+            Node tmpNode = this.head;
+            while (tmpNode != null) {
+                System.out.print(tmpNode.data + " -> ");
+                tmpNode = tmpNode.next;
+//                System.out.println(tmpNode); // null
+            }
+
 //            while (head != null) {
 //                System.out.print(head.data + " -> ");
-//                head = head.next;
+//                this.head = this.head.next;
 //            }
-            Node currentNode = this.head;
-            while (currentNode != null) {
-                System.out.print(currentNode.data + " -> ");
-                currentNode = currentNode.next;
-
-
-            }
-            System.out.println("null");
+            System.out.print("null\n");
         }
     }
 
 
     public static void main(String[] args) {
-        Node one = new Node(1);
-        Node two = new Node(2);
-        Node three = new Node(3);
+//        Node one = new Node(1);
+//        Node two = new Node(2);
+//        Node three = new Node(3);
 
         LinkedList ll = new LinkedList();
 
         ll.addFirstNode(1);
-//        ll.printList();
-
         ll.addFirstNode(2);
-        ll.addFirstNode(3);
+//        ll.addFirstNode(3);
+
         ll.printList();
 
+        System.out.println("---");
+        ll.addLastNode(5);
+
+        ll.printList();
+        ll.addLastNode(6);
+
+        ll.printList();
+        ll.addLastNode(7);
+
+        ll.printList();
+
+
+        System.out.println("----------");
+        System.out.println("Final Head: " + ll.head.data);
+//        System.out.println(ll.head.next);
+
     }
-
-
 }
 
 
